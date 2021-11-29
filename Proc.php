@@ -7,10 +7,12 @@
 </head>
 <body>
 	<?php
-	 mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
-	подключиться к серверу"); // установление соединения с сервером
+	define ("HOST", "localhost");
+	define ("USER", "f0592623_proc");
+	define ("PASS", "admin");
+	define ("DB", "f0592623_proc"); // установление соединения с сервером
 	 // подключение к базе данных:
-	 $mysqli = mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
+	 $mysqli = mysqli_connect(HOST, USER, PASS, DB) or die ("Невозможно
 	подключиться к серверу");
 	?>
 	<h2>Зарегистрированные пользователи:</h2>
@@ -41,13 +43,6 @@
 	<p> <a href="newP.php"> Добавить пользователя </a>
 		<br>
 	<h2>Магазины</h2>
-	<?php
-	 mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
-	подключиться к серверу"); // установление соединения с сервером
-	 // подключение к базе данных:
-	 $mysqli = mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
-	подключиться к серверу");
-	?>
 	<table border="1">
 	<tr> // Цифровые магазины
 	 <th> id </th> <th> Название </th> <th> ссылка </th> </tr>
@@ -72,13 +67,7 @@
 	<p> <a href="newStore.php"> Добавить магазин </a>
 		<br>
 	<h2>Ключи</h2>
-	<?php
-	 mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
-	подключиться к серверу"); // установление соединения с сервером
-	 // подключение к базе данных:
-	 $mysqli = mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
-	подключиться к серверу");
-	?>
+
 	<table border="1">
 	<tr> // Цифровые ключи
 	 <th> id </th><th> Дата приобретения </th> <th> дата окончания </th> <th> ID ОС </th> <th> ID цифрового магазина </th> <th> стоимость </th> <th> ключ </th> </tr>

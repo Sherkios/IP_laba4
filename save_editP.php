@@ -7,10 +7,12 @@
 </head>
 <body>
 	<?php
-	 mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
-	подключиться к серверу"); // установление соединения с сервером
+	 define ("HOST", "localhost");
+	define ("USER", "f0592623_proc");
+	define ("PASS", "admin");
+	define ("DB", "f0592623_proc"); // установление соединения с сервером
 	 // подключение к базе данных:
-	 $mysqli = mysqli_connect("localhost", "root", "", "proc") or die ("Невозможно
+	 $mysqli = mysqli_connect(HOST, USER, PASS, DB) or die ("Невозможно
 	подключиться к серверу");
 	 $mysqli->query('SET NAMES UTF-8');
 	 $zapros="UPDATE proces SET proc_name='".$_GET['name'].
