@@ -18,6 +18,8 @@
 	 $rows=$mysqli->query("SELECT data_purchase, data_end,
 	id_OC, id_store, cost, kluch FROM digital_keys WHERE
 	id_key=".$_GET['id_key']);
+	 $OC=$mysqli->query("SELECT id_proc, proc_name FROM proces");
+	 $stores=$mysqli->query("SELECT id_store, name FROM digital_stores");
 	 while ($st = mysqli_fetch_array($rows)) {
 	 $id=$_GET['id_key'];
 	 $data_purchase = $st['data_purchase'];
@@ -32,10 +34,21 @@
 	value='".$data_purchase."'>";
 	print "<br>Дата окончания: <input name='data_end' size='20' type='text'
 	value='".$data_end."'>";
-	print "<br>ID OC: <input name='id_OC' size='20' type='text'
-	value='".$id_OC."'>";
-	print "<br>ID цифрового магазина: <input name='id_store' size='30' type='text'
-	value='".$id_store."'>";
+	echo "<br> ID OC:<select name='id_OC'>";
+		while ($row = mysqli_fetch_array($OC)) {
+			if ($id_OC == $row['id_proc']) {
+				echo "<option value='" . $row['id_proc'] ."' selected='selected'>" . $row['proc_name'] ."</option>";
+			} else {echo "<option value='" . $row['id_proc'] ."'>" . $row['proc_name'] ."</option>";}
+		}
+		echo "</select>";
+
+	echo "<br>ID цифрового магазина: <select name='id_store'>";
+		while ($row = mysqli_fetch_array($stores)) {
+			if ($id_store == $row['id_store']) {
+				echo "<option value='" . $row['id_store'] ."' selected='selected'>" . $row['name'] ."</option>";
+			} else {echo "<option value='" . $row['id_store'] ."'>" . $row['name'] ."</option>";}
+		}
+		echo "</select>";
 	print "<br>Цена: <input name='cost' rows='4'
 	cols='40' value='".$cost."'>";
 	print "<br>ключ: <input name='kluch' rows='4'
