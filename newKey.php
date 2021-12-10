@@ -10,8 +10,33 @@
 	<form action="save_newKey.php" metod="get">
 	 Дата приобретения: <input name="data_purchase" size="50" type="date">
 	<br>Дата окончания: <input name="data_end" size="20" type="date">
-	<br>ID OC: <input name="id_OC" size="20" type="text">
-	<br>ID цифрового магазина: <input name="id_store" size="30" type="text">
+	<br>
+	ID OC:
+	<?php 
+ 	define ("HOST", "localhost");
+	define ("USER", "f0592623_proc");
+	define ("PASS", "admin");
+	define ("DB", "f0592623_proc"); // установление соединения с сервером
+	 // подключение к базе данных:
+	 $mysqli = mysqli_connect(HOST, USER, PASS, DB) or die ("Невозможно
+	подключиться к серверу");
+	 $mysqli->query('SET NAMES UTF-8');
+	 $rows=$mysqli->query("SELECT id_proc FROM proces");
+	echo "<select name='id_OC'>";
+		while ($row = mysqli_fetch_array($rows)) {
+		    echo "<option value='" . $row['id_proc'] ."'>" . $row['id_proc'] ."</option>";
+		}
+		echo "</select>";
+		 ?>
+	<br>ID цифрового магазина: 
+	<?php 
+	 $rows=$mysqli->query("SELECT id_store FROM digital_stores");
+	echo "<select name='id_store'>";
+		while ($row = mysqli_fetch_array($rows)) {
+		    echo "<option value='" . $row['id_store'] ."'>" . $row['id_store'] ."</option>";
+		}
+		echo "</select>";
+		 ?>
 	<br>цена: <input name="cost" rows="4" cols="40">
 	<br>Ключ: <input name="kluch" rows="4" cols="40">
 	<p><input name="add" type="submit" value="Добавить">

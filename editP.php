@@ -7,7 +7,7 @@
 </head>
 <body>
 	<?php
- define ("HOST", "localhost");
+ 	define ("HOST", "localhost");
 	define ("USER", "f0592623_proc");
 	define ("PASS", "admin");
 	define ("DB", "f0592623_proc"); // установление соединения с сервером

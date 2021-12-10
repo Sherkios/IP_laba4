@@ -7,6 +7,7 @@
 </head>
 <body>
 	<?php
+	//f0592623_proc admin f0592623_proc
 	define ("HOST", "localhost");
 	define ("USER", "f0592623_proc");
 	define ("PASS", "admin");
