@@ -96,5 +96,7 @@
 	?>
 	<p> <a href="newKey.php"> Добавить ключ </a>
 		<br>
+	<a href="gen_pdf.php">Сгенерировать пдф файл</a> <br>
+	<a href="gen_xls.php">Сгенерировать xls файл</a>
 </body>
 </html>
